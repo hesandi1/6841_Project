@@ -3,7 +3,7 @@ import json
 from datetime import datetime
 
 serverHost = ""
-serverPort = 2000 # check what i can use as a server port
+serverPort = 2000
 serverAddress = (serverHost, serverPort)
 
 serverSocket = socket(AF_INET, SOCK_STREAM)
@@ -15,13 +15,11 @@ print("connection accepted and started!")
 try:
     while True:
         recv_data = clientSocket.recv(1024)
-        # print(recv_data)
         if not recv_data:
             data = ""
             continue
         else:
             data = json.loads(recv_data.decode('utf-8'))
-        # print(f"data is {data}")
 
         logs = open("logs.txt", 'a')
         now = datetime.now()
